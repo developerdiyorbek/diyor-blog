@@ -5,6 +5,7 @@ import { navLinks } from "@/constants";
 import Link from "next/link";
 import GlobalSearch from "./GlobalSearch";
 import { usePathname } from "next/navigation";
+import HamburgeMenu from "./mobile";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -40,6 +41,8 @@ const Navbar = () => {
 
           {/* Mod Toggle */}
           <ModeToggle />
+
+          <HamburgeMenu />
         </div>
       </div>
     </nav>
