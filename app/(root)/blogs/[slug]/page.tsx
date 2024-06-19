@@ -13,41 +13,45 @@ import {
 import Image from "next/image";
 import React from "react";
 import parse from "html-react-parser";
-import { content } from "@/constants";
 import Link from "next/link";
+import { getDetailedBlog } from "@/service/blog.service";
+import { getReadingTime } from "@/lib/utils";
+import { format } from "date-fns";
 
-const BlogsDetailPage = ({ params }: { params: { blogId: string } }) => {
+const BlogsDetailPage = async ({ params }: { params: { slug: string } }) => {
+  const blog = await getDetailedBlog(params.slug);
+
   return (
     <div className="pt-[15vh] max-w-6xl mx-auto">
       <h1 className="lg:text-6xl md:text-5xl text-4xl font-creteRound">
-        The AGI hype train is running out of steam
+        {blog.title}
       </h1>
 
       <div className="flex flex-wrap max-md:justify-center mt-4 gap-4 items-center">
         <div className="flex items-center gap-2">
           <Image
-            src={"/author/thomas-macaulay.jpg"}
+            src={blog.author.image.url}
             width={30}
             height={30}
             alt="author"
             className="object-cover rounded-sm"
           />
-          <p>by Samar</p>
+          <p>by {blog.author.name}</p>
         </div>
         <Minus />
         <div className="flex items-center gap-2">
           <Clock className="w-5 h-5" />
-          <p>01 min read</p>
+          <p>{getReadingTime(blog.content.html)} min read</p>
         </div>
         <Minus />
         <div className="flex items-center gap-2">
           <CalendarDays className="w-5 h-5" />
-          <p>Dec 5, 2021</p>
+          <p>{format(new Date(blog.createdAt), "MMM dd, yyyy")}</p>
         </div>
       </div>
 
       <Image
-        src={"/blogs/01.jpg"}
+        src={blog.image.url}
         width={1120}
         height={595}
         alt="blogsImage"
@@ -77,12 +81,12 @@ const BlogsDetailPage = ({ params }: { params: { blogId: string } }) => {
             </div>
           </div>
         </div>
-        <div className="flex-1 prose dark:prose-invert">{parse(content)}</div>
+        <div className="flex-1 prose dark:prose-invert">{blog.description}</div>
       </div>
 
       <div className="flex mt-6 gap-6 items-center max-md:flex-col">
         <Image
-          src={"/author/chris-impey.jpg"}
+          src={blog.author.image.url}
           width={155}
           height={155}
           alt="author"
@@ -90,11 +94,9 @@ const BlogsDetailPage = ({ params }: { params: { blogId: string } }) => {
         />
 
         <div className="flex flex-col flex-1 space-y-4">
-          <h2 className="text-3xl font-creteRound">Thomas Macaulay</h2>
+          <h2 className="text-3xl font-creteRound">{blog.author.name}</h2>
           <p className="lime-clamp-2 text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo odit
-            delectus possimus exercitationem ut harum atque magnam quia! Id,
-            exercitationem!
+            {blog.author.bio}
           </p>
           <Link
             href={"/"}
