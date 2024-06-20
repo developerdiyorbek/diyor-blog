@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import {
   Drawer,
   DrawerClose,
@@ -8,20 +7,33 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
-import { popularCategories, popularTags } from "@/constants";
 import { getSearchBlogs } from "@/service/blog.service";
-import { IBlog } from "@/types";
+import { IBlog, ICategoryAndTags } from "@/types";
 
 import { Loader2, Minus, Search } from "lucide-react";
 import Link from "next/link";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { debounce } from "lodash";
 import SearchCard from "@/components/cards/search";
 import { Separator } from "@/components/ui/separator";
+import { getCategories } from "@/service/category.service";
+import { getTags } from "@/service/tag.service";
+import CategoriesTagsLink from "./categoriesTagsLink";
 
 const GlobalSearch = () => {
   const [loading, setLoading] = useState(false);
   const [blogs, setBlogs] = useState<IBlog[]>([]);
+
+  const [categories, setCategories] = useState<ICategoryAndTags[]>([]);
+  const [tags, setTags] = useState<ICategoryAndTags[]>([]);
+
+  useEffect(() => {
+    getCategories().then((data) => setCategories(data));
+  }, []);
+
+  useEffect(() => {
+    getTags().then((data) => setTags(data));
+  }, []);
 
   const handleSearch = async (e: ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value.toLowerCase();
@@ -79,11 +91,14 @@ const GlobalSearch = () => {
               </Link>
             </div>
             <div className="flex flex-wrap gap-2">
-              {popularCategories.map((item) => (
-                <Badge key={item.slug} variant={"secondary"}>
-                  {item.name}
-                </Badge>
-              ))}
+              {categories &&
+                categories.map((item) => (
+                  <CategoriesTagsLink
+                    key={item.slug}
+                    {...item}
+                    type="categories"
+                  />
+                ))}
             </div>
           </div>
 
@@ -101,11 +116,10 @@ const GlobalSearch = () => {
               </Link>
             </div>
             <div className="flex flex-wrap gap-2">
-              {popularTags.map((item) => (
-                <Badge key={item.slug} variant={"secondary"}>
-                  {item.name}
-                </Badge>
-              ))}
+              {tags &&
+                tags.map((item) => (
+                  <CategoriesTagsLink key={item.slug} {...item} type="tags" />
+                ))}
             </div>
           </div>
         </div>

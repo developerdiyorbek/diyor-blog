@@ -17,6 +17,7 @@ export interface IBlog {
 export interface ICategoryAndTags {
   name: string;
   slug: string;
+  blogs: IBlog[];
 }
 
 export interface IAuthor {

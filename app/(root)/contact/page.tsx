@@ -1,6 +1,11 @@
 import ContactForm from "@/components/forms/contactForm";
 import { Dot, Home, Mail, Phone, Send } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Contact us",
+};
 
 const ContactPage = () => {
   return (
@@ -23,7 +28,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4 mt-6">
+      <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4 mt-8">
         <div className="flex flex-col">
           <h1 className="text-4xl font-creteRound">Contact Diyorbek</h1>
           <p className="mt-2 text-muted-foreground">

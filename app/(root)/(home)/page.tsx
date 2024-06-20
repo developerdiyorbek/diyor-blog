@@ -12,7 +12,9 @@ const HomePage = async () => {
         <h1 className="text-3xl md:text-4xl font-creteRound lg:text-5xl text-center max-w-2xl">
           Taking control of your daily life is easy when you know how!
         </h1>
-        <BgArrow />
+        <span className="hidden md:block">
+          <BgArrow />
+        </span>
       </div>
       <h2 className="text-center text-4xl section-title font-creteRound">
         <span>Recent posts</span>
