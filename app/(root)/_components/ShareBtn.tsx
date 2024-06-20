@@ -8,7 +8,8 @@ import { toast } from "sonner";
 const ShareBtn = () => {
   const pathname = usePathname();
   const onCopy = () => {
-    const link = "http://localhost:3000/" + pathname;
+    const BASEURL = process.env.NEXT_PUBLIC_BASE_URL;
+    const link = BASEURL + pathname;
     navigator.clipboard
       .writeText(link)
       .then(() => toast.success("Copied to clipboard"));
