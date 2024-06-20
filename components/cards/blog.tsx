@@ -1,5 +1,5 @@
 import { IBlog } from "@/types";
-import { CalendarDays, Clock, Dot, Minus } from "lucide-react";
+import { CalendarDays, Clock, Dot, Layers2, Minus, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "../ui/badge";
@@ -70,7 +70,14 @@ const BlogCard = (blog: Props) => {
           <div className="flex items-center gap-2">
             <Link href={`/tags/${blog.tag.slug}`}>
               <Badge variant={"secondary"} role="button">
+                <Tag className="w-3 h-3 me-2" />
                 {blog.tag.name}
+              </Badge>
+            </Link>
+            <Link href={`/categories/${blog.category.slug}`}>
+              <Badge variant={"outline"} role="button">
+                <Layers2 className="w-3 h-3 me-2" />
+                {blog.category.name}
               </Badge>
             </Link>
           </div>

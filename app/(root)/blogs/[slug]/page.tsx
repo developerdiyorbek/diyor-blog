@@ -11,8 +11,6 @@ import {
   Twitter,
 } from "lucide-react";
 import Image from "next/image";
-import React from "react";
-import parse from "html-react-parser";
 import Link from "next/link";
 import { getDetailedBlog } from "@/service/blog.service";
 import { getReadingTime } from "@/lib/utils";
@@ -99,7 +97,7 @@ const BlogsDetailPage = async ({ params }: { params: { slug: string } }) => {
             {blog.author.bio}
           </p>
           <Link
-            href={"/"}
+            href={`/author/${blog.author.id}`}
             className="flex items-center gap-2 hover:text-blue-500 underline transition-colors"
           >
             <span>See all posts by this author</span>

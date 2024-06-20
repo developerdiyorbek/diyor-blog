@@ -20,7 +20,14 @@ export interface ICategoryAndTags {
 }
 
 export interface IAuthor {
+  id: string;
   image: { url: string };
   name: string;
   bio: string;
+  blogs: IBlog[];
+}
+
+export interface IArchivedBlog {
+  year: string;
+  blogs: IBlog[];
 }

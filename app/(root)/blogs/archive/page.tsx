@@ -1,8 +1,12 @@
+import { getArchiveBlogs, getBlogs } from "@/service/blog.service";
+import { format } from "date-fns";
 import { Archive, Dot, Home } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const ArchivePage = () => {
+const ArchivePage = async () => {
+  const blogs = await getArchiveBlogs();
+
   return (
     <div className="max-w-6xl mx-auto">
       <div className="relative min-h-[35vh] flex items-center justify-end flex-col">
@@ -31,29 +35,36 @@ const ArchivePage = () => {
         </div>
       </div>
 
-      <div className="flex flex-col space-y-3 mt-8">
-        <div className="relative">
-          <span className="text-5xl font-creteRound relative z-20">2024</span>
-          <Archive className="absolute w-16 h-16 -translate-x-4 -translate-y-12 opacity-10" />
-        </div>
-      </div>
+      {blogs.map((blog) => (
+        <>
+          <div className="flex flex-col space-y-3 mt-8">
+            <div className="relative">
+              <span className="text-5xl font-creteRound relative z-20">
+                {blog.year}
+              </span>
+              <Archive className="absolute w-16 h-16 -translate-x-4 -translate-y-12 opacity-10" />
+            </div>
+          </div>
 
-      <div className="flex flex-col space-y-2 mt-8">
-        <div className="flex gap-2 text-lg text-muted-foreground">
-          <p>05 Dec</p>
-          <Dot className="text-white h-8 w-8" />
-          <div className="hover:text-white hover:underline cursor-pointer">
-            The AGI hype train is running out of steam
+          <div className="flex flex-col space-y-2 mt-8">
+            {blog.blogs.map((blog) => (
+              <div
+                className="flex gap-2 text-lg text-muted-foreground"
+                key={blog.slug}
+              >
+                <p>{format(new Date(blog.createdAt), "dd MMM")}</p>
+                <Dot className="text-white h-8 w-8" />
+                <Link
+                  href={`/blogs/${blog.slug}`}
+                  className="hover:text-white hover:underline cursor-pointer"
+                >
+                  {blog.title}
+                </Link>
+              </div>
+            ))}
           </div>
-        </div>
-        <div className="flex gap-2 text-lg text-muted-foreground">
-          <p>05 Dec</p>
-          <Dot className="text-white h-8 w-8" />
-          <div className="hover:text-white hover:underline cursor-pointer">
-            The AGI hype train is running out of steam
-          </div>
-        </div>
-      </div>
+        </>
+      ))}
     </div>
   );
 };
