@@ -1,15 +1,4 @@
-import { Button } from "@/components/ui/button";
-import {
-  ArrowUpRight,
-  CalendarDays,
-  Clock,
-  Facebook,
-  Link2,
-  Linkedin,
-  Minus,
-  Send,
-  Twitter,
-} from "lucide-react";
+import { ArrowUpRight, CalendarDays, Clock, Minus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getDetailedBlog } from "@/service/blog.service";
@@ -27,7 +16,7 @@ export async function generateMetadata({
     title: blog.title,
     description: blog.description,
     openGraph: {
-      image: blog.image.url,
+      images: blog.image.url,
     },
   };
 }
