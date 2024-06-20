@@ -8,7 +8,8 @@ import { toast } from "sonner";
 const ShareBtn = () => {
   const pathname = usePathname();
   const onCopy = () => {
-    const BASEURL = process.env.NEXT_PUBLIC_BASE_URL;
+    const BASEURL = "https://diyor-blog.vercel.app/";
+
     const link = BASEURL + pathname;
     navigator.clipboard
       .writeText(link)
