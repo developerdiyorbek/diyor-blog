@@ -19,7 +19,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://test-blog.sammi.ac"),
+  metadataBase: new URL("https://dili017.uz"),
   title: "Diyorbek dasturlashga oid maqolalar",
   description:
     "Dasturlash haqida maqolalar, yangiliklar, maslahatlar va dasturlash haqidagi so'nggi xabarlar.",
@@ -32,9 +32,10 @@ export const metadata: Metadata = {
     description:
       "Dasturlash haqida maqolalar, yangiliklar, maslahatlar va dasturlash haqidagi so'nggi xabarlar.",
     type: "website",
-    url: "https://test-blog.sammi.ac",
+    url: "https://dili017.uz",
     locale: "en_EN",
-    images: "https://media.graphassets.com/kXL006lyRnW46IKTHdHs",
+    images:
+      "https://media.licdn.com/dms/image/D4E03AQHhHJumaNp72g/profile-displayphoto-shrink_200_200/0/1685358900467?e=2147483647&v=beta&t=Zingh7I6OblBegDHRkHUZHLggqd7BTGutW2RnkaKKDg",
     countryName: "Uzbekistan",
     siteName: "Diyorbek's blog",
     emails: "diyorbeksulaymonov70@gmail.com",
