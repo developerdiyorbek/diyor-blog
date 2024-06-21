@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Sulaymonov Diyorbek", url: "https://diyor-dev.uz" }],
   icons: { icon: "/favicon.png" },
   keywords:
-    "Dasturlash haqida maqolalar, yangiliklar, maslahatlar va dasturlash haqidagi so'nggi xabarlar, Diyorbek blogi, diyorbek's blog",
+    "Dasturlash haqida maqolalar, yangiliklar, maslahatlar va dasturlash haqidagi so'nggi xabarlar, Diyorbek blogi, diyorbek's blog, dili017, Diyorbek Sulaymonov, diyordev, diyor-dev, sulaymonov diyorbek, developers news, developerdiyorbek, diyorbekdeveloper",
   openGraph: {
     title: "Diyorbek dasturlashga oid maqolalar",
     description:
