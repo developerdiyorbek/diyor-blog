@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     url: "https://dili017.uz",
     locale: "en_EN",
     images:
-      "https://media.licdn.com/dms/image/D4E03AQHhHJumaNp72g/profile-displayphoto-shrink_200_200/0/1685358900467?e=2147483647&v=beta&t=Zingh7I6OblBegDHRkHUZHLggqd7BTGutW2RnkaKKDg",
+      "https://lh3.googleusercontent.com/pw/AP1GczMY8bWabI0Pb2d0rtRXQisIjewIxleTbbjssR6KUAjH02ipnrf1oNYec3AGUonA7PcIxI6ew0DFz90DryXOJdpJpXQNfaRER8pGYsHmzJ3IUhRIXacOJ6rONf1RKG0ZQZfof40dlx_xdWhNyI1a5JwW=w960-h1280-s-no-gm?authuser=0",
     countryName: "Uzbekistan",
-    siteName: "Diyorbek's blog",
+    siteName: "Diyorbek's blog, dili017",
     emails: "diyorbeksulaymonov70@gmail.com",
   },
 };
