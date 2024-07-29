@@ -26,11 +26,11 @@ const BlogsDetailPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="pt-[15vh] max-w-6xl mx-auto">
-      <h1 className="lg:text-6xl md:text-5xl text-4xl font-creteRound">
+      <h1 className="lg:text-4xl md:text-3xl text-2xl font-creteRound">
         {blog.title}
       </h1>
 
-      <div className="flex flex-wrap max-md:justify-center mt-4 gap-4 items-center">
+      <div className="flex flex-wrap  mt-4 gap-4 items-center">
         <div className="flex items-center gap-2">
           <Image
             src={blog.author.image.url}
@@ -81,7 +81,9 @@ const BlogsDetailPage = async ({ params }: { params: { slug: string } }) => {
         />
 
         <div className="flex flex-col flex-1 space-y-4">
-          <h2 className="text-3xl font-creteRound">{blog.author.name}</h2>
+          <h2 className="text-xl md:text-3xl font-creteRound">
+            {blog.author.name}
+          </h2>
           <p className="lime-clamp-2 text-muted-foreground">
             {blog.author.bio}
           </p>

@@ -18,8 +18,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
         <div className="flex flex-col flex-1 space-y-4">
           <p className="text-muted-foreground text-xl">
-            <span className="font-bold text-white">{author.blogs.length}</span>{" "}
-            Published posts
+            <span className="font-bold">{author.blogs.length}</span> Published
+            posts
           </p>
           <h2 className="text-3xl font-creteRound">{author.name}</h2>
           <p className="lime-clamp-2 text-muted-foreground max-w-xl">
@@ -28,7 +28,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
         </div>
       </div>
 
-      <h2 className="text-center mt-4 text-4xl section-title font-creteRound">
+      <h2 className="text-center max-md:mt-12 mt-20 text-4xl section-title font-creteRound">
         <span>Published posts</span>
       </h2>
 

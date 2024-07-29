@@ -1,7 +1,6 @@
 import BlogCard from "@/components/cards/blog";
 import BgArrow from "@/components/shared/BgArrow";
 import { getBlogs } from "@/service/blog.service";
-import React from "react";
 
 const HomePage = async () => {
   const blogs = await getBlogs();
@@ -20,7 +19,7 @@ const HomePage = async () => {
         <span>Recent posts</span>
       </h2>
 
-      <div className="flex flex-col space-y-24 mt-24">
+      <div className="flex flex-col space-y-24 max-md:mt-16 mt-24">
         {blogs.map((blog) => (
           <BlogCard key={blog.title} {...blog} />
         ))}
